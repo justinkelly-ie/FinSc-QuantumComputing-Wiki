@@ -25,7 +25,7 @@
 - **Compile-Time Reflection Auditor:** `%macro` reflection provers auditing quantum circuit unitary invariance and stabilizer group closure.
 
 ### 3. `Library/Wiki/Main.idr`
-- **Verification Runner:** Literate Idris 2 test runner executing compile-time `%macro` reflection proofs and QuickCheck property test suites for Layer 6b (`lquantum-computing`).
+- **Verification Runner:** Literate Idris 2 test runner executing compile-time `%macro` reflection proofs and QuickCheck property test suites for Layer 6b (`quantum-computing-wiki`).
 
 ---
 
@@ -35,7 +35,7 @@ To compile the literate verification suite and execute the test runner binary:
 
 ```bash
 idris2 --build Idris2-QuantumComputing-Wiki.ipkg
-./build/exec/lquantum-computing
+./build/exec/quantum-computing-wiki
 ```
 
 ---

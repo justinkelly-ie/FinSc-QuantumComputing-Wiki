@@ -30,4 +30,4 @@ modules = Wiki.QuantumCircuitObs
         , Wiki.Reflect.QuantumAuditor
 
 main = Wiki.Main
-executable = lquantum-computing
+executable = quantum-computing-wiki
