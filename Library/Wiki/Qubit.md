@@ -5,7 +5,20 @@ A single Qubit is represented exact and discrete using:
   - Complex probability amplitudes $\alpha$ and $\beta$ stored as `(amplitude: BoxInt, phase: Dihedron)`.
   - Measurement probabilities $P(|0\rangle)$ and $P(|1\rangle)$ computed as exact Fractions ($\mathbb{Q}$).
 
-### What We Learned from Implementation
+---
+
+### 1. Quantum Qubit State $\leftrightarrow$ Multiset Basis Vector Duality Dictionary
+
+| Quantum Qubit State | Hilbert Space Dual | Multiset Basis Vector Dual |
+| :--- | :--- | :--- |
+| **Basis $|0\rangle$ Amplitude $\alpha$** | Basis Component $|0\rangle$ | `MkUnixel 0` Coefficient |
+| **Basis $|1\rangle$ Amplitude $\beta$** | Basis Component $|1\rangle$ | `MkUnixel 1` Coefficient |
+| **Qubit State Vector $|\psi\rangle$** | 2D Complex State Vector | `MkVexel [(MkUnixel 0, alpha), (MkUnixel 1, beta)]` |
+| **Pauli-X Gate** | Quantum NOT / Bit Flip | Basis Swap (`gateX : Qubit -> Qubit`) |
+
+---
+
+### 2. What We Learned from Implementation
 
 1. **Boolean Singletons ($B_2$ Field)**: Using `Bit` (`Zero` and `One`) grounds quantum logic wire states in von Neumann singletons (`MkSing ZeroM` vs `MkSing [[]]`).
 2. **Boolean Complement as Pauli-X**: Gate negation $\neg b = 1 + b$ (`negBit`) naturally implements Pauli-X bit flips.

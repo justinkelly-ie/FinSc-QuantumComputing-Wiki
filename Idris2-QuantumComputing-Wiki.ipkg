@@ -3,31 +3,26 @@ version = 0.1.0
 authors = "Justin Kelly"
 brief   = "Literate Observation Specifications for Discrete Quantum Circuits & Qubit Synthesis"
 
-depends = base
-        , contrib
-        , Idris2-Multiset-Core
-        , Idris2-Multiset-Transform
-        , Idris2-Geometry
-        , idris2-Dihedron
-        , idris2-QuickCheck
-        , Idris2-QuantumComputing
-
+depends = Idris2-Electromagnetism, Idris2-Multiset-Core, Idris2-Multiset-Transform, Idris2-QuantumComputing, base, idris2-Dihedron, idris2-QuickCheck, linear
 sourcedir = "Library"
 
-modules = Wiki.QuantumCircuitObs
-        , Wiki.Qubit
-        , Wiki.Register
-        , Wiki.Teleportation
-        , Wiki.NoCloningObs
-        , Wiki.LandauerObs
-        , Wiki.DihedralPhaseChannels
-        , Wiki.KitaevToricCode
-        , Wiki.DeutschJozsa
-        , Wiki.QuantumErrorMitigation
-        , Wiki.GaloisCircuitOptimization
-        , Wiki.HolographicQubitBound
-        , Wiki.ScaleTransforms
-        , Wiki.Reflect.QuantumAuditor
+modules = Wiki.DeutschJozsa,
+          Wiki.DihedralPhaseChannels,
+          Wiki.GaloisCircuitOptimization,
+          Wiki.HolographicQubitBound,
+          Wiki.KitaevToricCode,
+          Wiki.LandauerObs,
+          Wiki.Main,
+          Wiki.NoCloningObs,
+          Wiki.QuantumCircuitObs,
+          Wiki.QuantumErrorMitigation,
+          Wiki.QuantumStateStreamSpec,
+          Wiki.Qubit,
+
+          Wiki.Reflect.QuantumAuditor,
+          Wiki.Register,
+          Wiki.ScaleTransforms,
+          Wiki.Teleportation
 
 main = Wiki.Main
 executable = quantum-computing-wiki
