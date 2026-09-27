@@ -18,10 +18,10 @@ module Wiki.Teleportation
 
 import Wiki.Qubit
 import Wiki.Register
-import Math.Singleton.Bit
-import Math.Dihedron.Dihedron
-import Core.BoxInt
-import Core.UnixelFraction
+import Stage0.Singleton.Bit
+import Stage1.Dihedron
+import Stage0.BoxInt
+import Stage1.UnixelFraction
 import QuickCheck
 
 %default total

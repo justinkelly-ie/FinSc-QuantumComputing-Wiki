@@ -13,9 +13,9 @@ In Idris 2 QTT, attempting to clone a linear Qubit (`1 _ : Qubit`) is rejected a
 module Wiki.NoCloningObs
 
 import Wiki.Qubit
-import Math.Singleton.Bit
-import Core.BoxInt
-import Math.Interfaces
+import Stage0.Singleton.Bit
+import Stage0.BoxInt
+import Stage0.Interfaces
 import QuickCheck
 
 %default total

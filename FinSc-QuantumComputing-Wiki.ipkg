@@ -8,7 +8,7 @@ sourcedir = "Library"
 
 modules = Wiki.DeutschJozsa,
           Wiki.DihedralPhaseChannels,
-          Wiki.GaloisCircuitOptimization,
+          Wiki.MultisetCircuitOptimizationSpec,
           Wiki.HolographicQubitBound,
           Wiki.KitaevToricCode,
           Wiki.LandauerObs,

@@ -11,11 +11,10 @@ Documents the three fundamental quantum phase channels ($C_b, C_r, C_g$) within 
 ```idris
 module Wiki.DihedralPhaseChannels
 
-import Math.Singleton.Bit
-import Math.Singleton.Sing
-import Math.Dihedron.Dihedron
-import Math.Dihedron.Subalgebras
-import Core.BoxInt
+import Stage0.Singleton.Bit
+import Stage0.Singleton.Sing
+import Stage1.Dihedron
+import Stage0.BoxInt
 import QuickCheck
 
 %default total

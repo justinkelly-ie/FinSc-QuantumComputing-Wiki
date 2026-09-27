@@ -26,14 +26,14 @@ A single Qubit is represented exact and discrete using:
 ```idris
 module Wiki.Qubit
 
-import Math.Singleton.Bit
-import Math.Singleton.Sing
-import Math.Dihedron.Dihedron
-import Core.BoxInt
-import Core.VexelMaxel
-import Core.UnixelFraction
-import Core.Order.Preorder
-import Math.OnSeq.FusedStream
+import Stage0.Singleton.Bit
+import Stage0.Singleton.Sing
+import Stage1.Dihedron
+import Stage0.BoxInt
+import Stage1.VexelMaxel
+import Stage1.UnixelFraction
+import Stage1.Order.Preorder
+import Stage0.OnSeq.FusedStream
 import Data.Fuel
 import QuickCheck
 
@@ -44,9 +44,9 @@ public export
 record Qubit where
   constructor MkQubit
   wireBit : Bit
-  amp0    : Core.BoxInt.BoxInt   -- Amplitude for |0⟩
+  amp0    : Stage0.BoxInt.BoxInt   -- Amplitude for |0⟩
   phase0  : Dihedron -- Phase vector for |0⟩
-  amp1    : Core.BoxInt.BoxInt   -- Amplitude for |1⟩
+  amp1    : Stage0.BoxInt.BoxInt   -- Amplitude for |1⟩
   phase1  : Dihedron -- Phase vector for |1⟩
 
 public export
@@ -198,7 +198,7 @@ public export
 record QubitStep where
   constructor MkQubitStep
   stepId : Int
-  ampVal : Core.BoxInt.BoxInt
+  ampVal : Stage0.BoxInt.BoxInt
 
 public export
 Eq QubitStep where
@@ -207,7 +207,7 @@ Eq QubitStep where
 
 ||| O(1) allocation deforested stream transducer evaluating total amplitude sum across qubit steps.
 public export covering
-fusedQubitStateStream : Fuel -> List (Core.BoxInt.BoxInt, Core.BoxInt.BoxInt) -> Core.BoxInt.BoxInt
+fusedQubitStateStream : Fuel -> List (Stage0.BoxInt.BoxInt, Stage0.BoxInt.BoxInt) -> Stage0.BoxInt.BoxInt
 fusedQubitStateStream f steps =
   fusedHylomorphism f
     (\(idx, st) => case st of

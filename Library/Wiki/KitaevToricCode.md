@@ -12,10 +12,10 @@ Documents fault-tolerant topological quantum memory, stabilizer commutativity ($
 ```idris
 module Wiki.KitaevToricCode
 
-import Math.Singleton.Bit
-import Math.Singleton.Sing
-import Math.Dihedron.Dihedron
-import Core.BoxInt
+import Stage0.Singleton.Bit
+import Stage0.Singleton.Sing
+import Stage1.Dihedron
+import Stage0.BoxInt
 import QuickCheck
 
 %default total

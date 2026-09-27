@@ -16,9 +16,8 @@ Discrete Error Mitigation filters out the $C_g$ nilpotent component ($\text{scal
 ```idris
 module Wiki.QuantumErrorMitigation
 
-import Math.Dihedron.Dihedron
-import Math.Dihedron.Subalgebras
-import Core.BoxInt
+import Stage1.Dihedron
+import Stage0.BoxInt
 import QuickCheck
 
 %default total

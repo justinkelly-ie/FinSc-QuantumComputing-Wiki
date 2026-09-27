@@ -7,8 +7,8 @@ Implements the open `ScaleTransform` interface (`Core.ScaleTransform`) mapping s
 ```idris
 module Wiki.ScaleTransforms
 
-import Core.ScaleTransform
-import Math.Dihedron.Dihedron
+import Stage1.ScaleTransform
+import Stage1.Dihedron
 import Wiki.Qubit
 import QuickCheck
 

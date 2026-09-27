@@ -19,7 +19,7 @@
 - **[Kitaev Toric Code](Library/Wiki/KitaevToricCode.md)** — Stabilizer operators ($A_s, B_p$) and anyonic error recovery.
 - **[Deutsch-Jozsa Algorithm](Library/Wiki/DeutschJozsa.md)** — Quantum oracle evaluation and constant/balanced classification.
 - **[Landauer Erasure](Library/Wiki/LandauerObs.md)** — Thermodynamic cost of information erasure ($W \ge k_B T \ln 2$).
-- **[Galois Circuit Optimization](Library/Wiki/GaloisCircuitOptimization.md)** — Galois connection bounds over quantum circuit depth reduction.
+- **[Multiset Circuit Optimization](Library/Wiki/MultisetCircuitOptimizationSpec.md)** — Multiset scale transform bounds over quantum circuit depth reduction.
 
 ### 2. `Library/Wiki/Reflect/QuantumAuditor.idr`
 - **Compile-Time Reflection Auditor:** `%macro` reflection provers auditing quantum circuit unitary invariance and stabilizer group closure.

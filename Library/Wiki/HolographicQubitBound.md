@@ -11,7 +11,7 @@ In physical 3D quantum processors ($L=3$), the maximum quantum information capac
 ```idris
 module Wiki.HolographicQubitBound
 
-import Core.BoxInt
+import Stage0.BoxInt
 import QuickCheck
 
 %default total

@@ -10,12 +10,12 @@ Documents the single-query quantum algorithm over $B_2$ singletons, proving expo
 ```idris
 module Wiki.DeutschJozsa
 
-import Math.Singleton.Bit
-import Math.Singleton.Sing
-import Math.Multiset
-import Math.BoxInt
+import Stage0.Singleton.Bit
+import Stage0.Singleton.Sing
+import Stage0.Multiset
+import Stage0.BoxInt
 import Wiki.Qubit
-import Core.BoxInt
+import Stage0.BoxInt
 import QuickCheck
 
 %default total

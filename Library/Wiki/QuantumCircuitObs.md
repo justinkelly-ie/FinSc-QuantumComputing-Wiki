@@ -9,11 +9,11 @@ Documents quantum logic wire geometry (`Bit` Boolean Singletons), 4D Dihedral ph
 ```idris
 module Wiki.QuantumCircuitObs
 
-import Math.Singleton.Bit
-import Math.Singleton.Sing
-import Math.Dihedron.Dihedron
-import Core.BoxInt
-import Core.UnixelFraction
+import Stage0.Singleton.Bit
+import Stage0.Singleton.Sing
+import Stage1.Dihedron
+import Stage0.BoxInt
+import Stage1.UnixelFraction
 import QuickCheck
 
 %default total
@@ -22,7 +22,7 @@ public export
 record WaveToken where
   constructor MkWaveToken
   pixelPosition : Bit
-  amplitude     : Core.BoxInt.BoxInt
+  amplitude     : Stage0.BoxInt.BoxInt
   phase         : Dihedron
 
 public export

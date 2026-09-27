@@ -10,17 +10,17 @@ import Wiki.DihedralPhaseChannels
 import Wiki.KitaevToricCode
 import Wiki.DeutschJozsa
 import Wiki.QuantumErrorMitigation
-import Wiki.GaloisCircuitOptimization
+import Wiki.MultisetCircuitOptimizationSpec
 import Wiki.HolographicQubitBound
 import Wiki.Reflect.QuantumAuditor
 import Wiki.QuantumStateStreamSpec
-import Math.Singleton.Bit
-import Math.Singleton.Sing
-import Math.Dihedron.Dihedron
-import Math.BoxInt
-import Core.BoxInt
-import Core.VexelMaxel
-import Core.UnixelFraction
+import Stage0.Singleton.Bit
+import Stage0.Singleton.Sing
+import Stage1.Dihedron
+import Stage0.BoxInt
+import Stage0.BoxInt
+import Stage1.VexelMaxel
+import Stage1.UnixelFraction
 
 
 %default total
@@ -123,10 +123,10 @@ main = do
      else putStrLn "   -> FAIL: Error Mitigation check failed."
 
   putStrLn ""
-  putStrLn "--- PART 11: GALOIS ADJUNCTION QUANTUM CIRCUIT OPTIMIZATION ---"
-  if auditGaloisCircuitOptimizationProof
-     then putStrLn "   -> PASS: Galois Adjunction (f_* ⊣ f^*) Circuit Optimization Verified!"
-     else putStrLn "   -> FAIL: Galois Circuit Optimization check failed."
+  putStrLn "--- PART 11: MULTISET ADJUNCTION QUANTUM CIRCUIT OPTIMIZATION ---"
+  if auditMultisetCircuitOptimizationProof
+     then putStrLn "   -> PASS: Multiset Adjunction (f_* ⊣ f^*) Circuit Optimization Verified!"
+     else putStrLn "   -> FAIL: Multiset Circuit Optimization check failed."
 
   putStrLn ""
   putStrLn "--- PART 12: HOLOGRAPHIC QUANTUM BOUNDARY BOUNDS ---"

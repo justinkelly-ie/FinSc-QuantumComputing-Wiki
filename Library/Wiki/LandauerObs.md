@@ -11,10 +11,10 @@ $$\Delta \mathcal{L} \ge 1$$
 ```idris
 module Wiki.LandauerObs
 
-import Math.Singleton.Bit
-import Math.Singleton.Sing
-import Math.Multiset
-import Math.BoxInt
+import Stage0.Singleton.Bit
+import Stage0.Singleton.Sing
+import Stage0.Multiset
+import Stage0.BoxInt
 import QuickCheck
 
 %default total

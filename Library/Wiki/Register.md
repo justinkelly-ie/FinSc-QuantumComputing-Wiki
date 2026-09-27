@@ -11,10 +11,10 @@ This enables:
 module Wiki.Register
 
 import Wiki.Qubit
-import Math.Dihedron.Dihedron
-import Core.BoxInt
-import Core.VexelMaxel
-import Core.UnixelFraction
+import Stage1.Dihedron
+import Stage0.BoxInt
+import Stage1.VexelMaxel
+import Stage1.UnixelFraction
 import Data.Vect
 import QuickCheck
 
@@ -24,10 +24,10 @@ import QuickCheck
 public export
 record QubitRegister2 where
   constructor MkRegister2
-  amp00 : Core.BoxInt.BoxInt
-  amp01 : Core.BoxInt.BoxInt
-  amp10 : Core.BoxInt.BoxInt
-  amp11 : Core.BoxInt.BoxInt
+  amp00 : Stage0.BoxInt.BoxInt
+  amp01 : Stage0.BoxInt.BoxInt
+  amp10 : Stage0.BoxInt.BoxInt
+  amp11 : Stage0.BoxInt.BoxInt
 
 public export
 Eq QubitRegister2 where

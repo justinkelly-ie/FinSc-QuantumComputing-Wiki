@@ -8,7 +8,7 @@ Documents and verifies discrete **Quantum State Streams** and zero-allocation me
 module Wiki.QuantumStateStreamSpec
 
 import Quantum.StateStream
-import Core.BoxInt
+import Stage0.BoxInt
 import Data.Fuel
 
 %default total
