@@ -14,6 +14,8 @@ import Wiki.MultisetCircuitOptimizationSpec
 import Wiki.HolographicQubitBound
 import Wiki.Reflect.QuantumAuditor
 import Wiki.QuantumStateStreamSpec
+import Reflect.QuantumCoherenceAuditor
+import Language.Reflection
 import Stage0.Singleton.Bit
 import Stage0.Singleton.Sing
 import Stage1.Dihedron
@@ -22,14 +24,32 @@ import Stage0.BoxInt
 import Stage1.VexelMaxel
 import Stage1.UnixelFraction
 
-
 %default total
+
+||| Compile-time macro invariant witnesses (Rule 01)
+0 prfAuditPureStateTrace : Reflect.QuantumCoherenceAuditor.auditPureStateTraceProof = True
+prfAuditPureStateTrace = auditPureStateTrace
+
+0 prfAuditMaximalMixedTrace : Reflect.QuantumCoherenceAuditor.auditMaximalMixedTraceProof = True
+prfAuditMaximalMixedTrace = auditMaximalMixedTrace
+
+0 prfAuditHadamardUnitarity : Reflect.QuantumCoherenceAuditor.auditHadamardUnitarityProof = True
+prfAuditHadamardUnitarity = auditHadamardUnitarity
+
+0 prfAuditToricStabilizerCommutativity : Reflect.QuantumCoherenceAuditor.auditToricStabilizerCommutativityProof = True
+prfAuditToricStabilizerCommutativity = auditToricStabilizerCommutativity
 
 main : IO ()
 main = do
   putStrLn "=========================================================================="
   putStrLn "   IDRIS2 QUANTUM COMPUTING & QUBIT CIRCUIT SYNTHESIS WIKI RUNNER"
   putStrLn "=========================================================================="
+  putStrLn ""
+  putStrLn "--- PART 0: COMPILE-TIME ELABORATOR REFLECTION AUDITS (Rule 01) ---"
+  putStrLn "   -> Pure State Density Matrix Trace Preservation: INJECTED & VALID (Refl) ✅"
+  putStrLn "   -> Maximal Mixed Qubit Trace Conservation: INJECTED & VALID (Refl) ✅"
+  putStrLn "   -> Unitary Quantum Gate Preservation Tr(H^† H)=1: INJECTED & VALID (Refl) ✅"
+  putStrLn "   -> Kitaev Toric Code Stabilizer Commutativity: INJECTED & VALID (Refl) ✅"
   putStrLn ""
   putStrLn "--- PART 1: QUANTUM LOGIC WIRE PHASE SUPERPOSITION ---"
   let wireBit = Zero
