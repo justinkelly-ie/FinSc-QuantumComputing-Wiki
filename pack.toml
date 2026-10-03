@@ -1,7 +1,7 @@
 [package]
-name = "FinSc-QuantumComputing-Wiki"
+name = "FinSc-Quantum-Coherence-Wiki"
 version = "0.1.0"
-ipkg = "FinSc-QuantumComputing-Wiki.ipkg"
+ipkg = "FinSc-Quantum-Coherence-Wiki.ipkg"
 
 [custom.all.FinSc-Multiset-Core]
 type = "local"
@@ -23,10 +23,10 @@ type = "local"
 path = "../FinSc-Geometry"
 ipkg = "FinSc-Geometry.ipkg"
 
-[custom.all.FinSc-QuantumComputing]
+[custom.all.FinSc-Quantum-Coherence]
 type = "local"
-path = "../FinSc-QuantumComputing"
-ipkg = "FinSc-QuantumComputing.ipkg"
+path = "../FinSc-Quantum-Coherence"
+ipkg = "FinSc-Quantum-Coherence.ipkg"
 
 [custom.all.FinSc-Dihedron]
 type = "local"

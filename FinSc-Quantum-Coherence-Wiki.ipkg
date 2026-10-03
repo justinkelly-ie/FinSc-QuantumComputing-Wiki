@@ -1,9 +1,9 @@
-package FinSc-QuantumComputing-Wiki
+package FinSc-Quantum-Coherence-Wiki
 version = 0.1.0
 authors = "Justin Kelly"
-brief   = "Literate Observation Specifications for Discrete Quantum Circuits & Qubit Synthesis"
+brief   = "Literate Observation Specifications for Discrete Quantum Coherence & Qubit Streams"
 
-depends = FinSc-Electromagnetism, FinSc-Multiset, FinSc-Metric-Substrate, FinSc-Multiset-Transform, FinSc-QuantumComputing, base, FinSc-Dihedron, idris2-QuickCheck, linear
+depends = FinSc-Electromagnetism, FinSc-Multiset, FinSc-Metric-Substrate, FinSc-Multiset-Transform, FinSc-Quantum-Coherence, base, FinSc-Dihedron, idris2-QuickCheck, linear
 sourcedir = "Library"
 
 modules = Wiki.DeutschJozsa,
@@ -25,4 +25,4 @@ modules = Wiki.DeutschJozsa,
           Wiki.Teleportation
 
 main = Wiki.Main
-executable = quantum-computing-wiki
+executable = quantum-coherence-wiki
