@@ -14,6 +14,7 @@ import Wiki.MultisetCircuitOptimizationSpec
 import Wiki.HolographicQubitBound
 import Wiki.Reflect.QuantumAuditor
 import Wiki.QuantumStateStreamSpec
+import Stage0.Quantum.Clifford
 import Reflect.QuantumCoherenceAuditor
 import Language.Reflection
 import Stage0.Singleton.Bit
@@ -171,9 +172,16 @@ main = do
      else putStrLn "   -> FAIL: State Stream Measurement Expectation check failed."
 
   putStrLn ""
+  putStrLn "--- PART 15: CLIFFORD COMPANION STEPPERS & MULTISET-TREE AMPLITUDES ---"
+  let okClifford = auditCliffordTotalityProof
+  if okClifford
+     then putStrLn "   -> PASS: Clifford Bell Stabilizer Stepper & MultisetTree Amplitudes Verified!"
+     else putStrLn "   -> FAIL: Clifford Stabilizer / MultisetTree check failed."
+
+  putStrLn ""
   putStrLn "=========================================================================="
-  if okStateStream
-     then putStrLn "   ALL 14 QUANTUM LAWS, ERROR FILTERS, STREAMS & MACRO PROOFS PASSED WITH 100% TOTALITY!"
+  if okStateStream && okClifford
+     then putStrLn "   ALL 15 QUANTUM LAWS, ERROR FILTERS, STREAMS & MACRO PROOFS PASSED WITH 100% TOTALITY!"
      else putStrLn "   ❌ QUANTUM COMPUTING WIKI VERIFICATION FAILED"
   putStrLn "=========================================================================="
 
