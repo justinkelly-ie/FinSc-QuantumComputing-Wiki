@@ -177,17 +177,11 @@ record VerifiedQuantumCircuitState where
   prob1 : Nat
   0 normalizationPrf : QuantumBornRuleNormalizationWitness prob0 prob1
 
-||| $O(1)$ allocation deforested Born rule probability stream transducer using fusedHylomorphism
-public export covering
+||| $O(1)$ allocation deforested Born rule probability stream transducer using foldStreamNat
+public export
 fusedQuantumBornRuleStream : Fuel -> List (Nat, Nat) -> Nat
-fusedQuantumBornRuleStream f items =
-  fusedHylomorphism f
-    (\st => case st of
-              [] => Done
-              (p0, p1) :: rest => Yield (p0 + p1) rest)
-    (\val, acc => val + acc)
-    0
-    items
+fusedQuantumBornRuleStream _ items =
+  foldStreamNat (length items) (\acc, (p0, p1) => acc + p0 + p1) 0 (stream items)
 
 -----------------------------------------------------------------------
 -- DEFORESTED QUBIT STATE STREAM TRANSDUCERS
@@ -206,15 +200,9 @@ Eq QubitStep where
     id1 == id2 && a1 == a2
 
 ||| O(1) allocation deforested stream transducer evaluating total amplitude sum across qubit steps.
-public export covering
+public export
 fusedQubitStateStream : Fuel -> List (Stage0.BoxInt.BoxInt, Stage0.BoxInt.BoxInt) -> Stage0.BoxInt.BoxInt
-fusedQubitStateStream f steps =
-  fusedHylomorphism f
-    (\(idx, st) => case st of
-                     [] => Done
-                     (a0, a1) :: rest => Yield (MkQubitStep idx (a0 + a1)) (idx + 1, rest))
-    (\step, acc => ampVal step + acc)
-    (intToBoxInt 0)
-    (1, steps)
+fusedQubitStateStream _ steps =
+  foldStreamNat (length steps) (\acc, (a0, a1) => acc + a0 + a1) (intToBoxInt 0) (stream steps)
 
 ```

@@ -14,7 +14,7 @@ import Data.Fuel
 %default total
 
 ||| Property 1: Quantum Measurement Expectation Value Linearity
-public export covering
+public export
 prop_quantumExpectationValueLinearity : Bool
 prop_quantumExpectationValueLinearity =
   let items = [(ZeroState, intToBoxInt 6), (OneState, intToBoxInt 8)]
@@ -22,7 +22,7 @@ prop_quantumExpectationValueLinearity =
   in unwrapBox expVal == 100
 
 ||| Direct Suite Execution for Quantum State Stream Specification
-public export covering
+public export
 auditQuantumStateStreamSpecProof : IO Bool
 auditQuantumStateStreamSpecProof = do
   let p1 = prop_quantumExpectationValueLinearity
