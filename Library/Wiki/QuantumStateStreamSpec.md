@@ -9,6 +9,7 @@ module Wiki.QuantumStateStreamSpec
 
 import Quantum.StateStream
 import Stage0.BoxInt
+import Stage0.StructuralFuel
 import Data.Fuel
 
 %default total
@@ -18,7 +19,7 @@ public export
 prop_quantumExpectationValueLinearity : Bool
 prop_quantumExpectationValueLinearity =
   let items = [(ZeroState, intToBoxInt 6), (OneState, intToBoxInt 8)]
-      expVal = fusedExpectationValue (limit 100) items
+      expVal = fusedExpectationValueFuelModel ellipticGohFuelModel items
   in unwrapBox expVal == 100
 
 ||| Direct Suite Execution for Quantum State Stream Specification
