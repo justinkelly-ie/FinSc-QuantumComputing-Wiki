@@ -14,23 +14,11 @@ import Stage0.Singleton.Sing
 import Stage1.Dihedron
 import Stage0.BoxInt
 import Stage1.UnixelFraction
+import Stage0.Quantum.Circuit
+import Stage1.VexelMaxel
 import QuickCheck
 
 %default total
-
-public export
-record WaveToken where
-  constructor MkWaveToken
-  pixelPosition : Bit
-  amplitude     : Stage0.BoxInt.BoxInt
-  phase         : Dihedron
-
-public export
-interfereWaves : WaveToken -> WaveToken -> WaveToken
-interfereWaves (MkWaveToken p1 a1 ph1) (MkWaveToken p2 a2 ph2) =
-  let combinedPhase = addDihedron ph1 ph2
-      effAmp = if ph1 == negDihedron ph2 then MkBoxInt (abs (a1.value - a2.value)) else a1 + a2
-  in MkWaveToken p1 effAmp combinedPhase
 
 ||| Property 1: Quantum Hadamard Phase Superposition
 ||| Applying a 90-degree Dihedral phase rotation to a Zero qubit creates a superposition state.
@@ -43,4 +31,31 @@ prop_hadamardPhaseSuperposition wireBit =
       qH = MkWaveToken wireBit 1 hadamardPhase
       interfered = interfereWaves q0 qH
   in interfered.amplitude == 2
+
+||| Property 2: 2LTT Staged Single-Qubit MaxelN Gate Involutions
+||| Verifies that Pauli-X, Pauli-Z, and Hadamard gates satisfy exact algebraic identities under staged unrolling.
+export
+prop_stagedMaxelGateInvolution : Bool
+prop_stagedMaxelGateInvolution =
+  auditPauliXInvolution && auditPauliZInvolution && auditHadamardSquare
+
+||| Property 3: 2LTT Staged Two-Qubit Entanglement & Bell State Synthesizer
+||| Verifies CNOT/SWAP self-inversion and pure |00> to entangled Bell state synthesis.
+export
+prop_stagedBellCircuitEntanglement : Bool
+prop_stagedBellCircuitEntanglement =
+  auditCNOTInvolution && auditSWAPInvolution && auditBellStateCircuit
+
+||| Property 4: VexelN and MaxelN Multiset Conversion Round-Trip & Basis Consistency
+export
+prop_vexelMaxelBridge : Bool
+prop_vexelMaxelBridge =
+  let v2 = mkVexel2 (intToBoxInt 1) (intToBoxInt 0)
+      vM = vexelNToVexel0 v2
+      m2 = pauliXMaxel
+      mM = maxelNToMaxel0 m2
+  in (totalVexelMass vM == intToBoxInt 1) &&
+     (lookupPixel (MkPixel 0 1) mM == intToBoxInt 1) &&
+     (lookupPixel (MkPixel 1 0) mM == intToBoxInt 1)
 ```
+

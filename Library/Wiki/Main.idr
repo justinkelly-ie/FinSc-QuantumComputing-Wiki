@@ -179,9 +179,18 @@ main = do
      else putStrLn "   -> FAIL: Clifford Stabilizer / MultisetTree check failed."
 
   putStrLn ""
+  putStrLn "--- PART 16: 2LTT TYPED MaxelN & VexelN STAGED QUANTUM GATES ---"
+  let okMaxelGates = prop_stagedMaxelGateInvolution
+  let okBellStaged = prop_stagedBellCircuitEntanglement
+  let okVexelBridge = prop_vexelMaxelBridge
+  if okMaxelGates && okBellStaged && okVexelBridge
+     then putStrLn "   -> PASS: 2LTT Staged MaxelN Gates, VexelN Bell Circuit & Multiset Bridges Verified!"
+     else putStrLn "   -> FAIL: Staged MaxelN / VexelN Quantum Gates check failed."
+
+  putStrLn ""
   putStrLn "=========================================================================="
-  if okStateStream && okClifford
-     then putStrLn "   ALL 15 QUANTUM LAWS, ERROR FILTERS, STREAMS & MACRO PROOFS PASSED WITH 100% TOTALITY!"
+  if okStateStream && okClifford && okMaxelGates && okBellStaged && okVexelBridge
+     then putStrLn "   ALL 16 QUANTUM LAWS, ERROR FILTERS, STREAMS, STAGED MaxelN & MACRO PROOFS PASSED WITH 100% TOTALITY!"
      else putStrLn "   ❌ QUANTUM COMPUTING WIKI VERIFICATION FAILED"
   putStrLn "=========================================================================="
 
