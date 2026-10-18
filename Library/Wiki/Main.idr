@@ -15,6 +15,7 @@ import Wiki.HolographicQubitBound
 import Wiki.Reflect.QuantumAuditor
 import Wiki.QuantumStateStreamSpec
 import Stage0.Quantum.Clifford
+import Stage0.Quantum.Circuit
 import Reflect.QuantumCoherenceAuditor
 import Language.Reflection
 import Stage0.Singleton.Bit
@@ -54,7 +55,7 @@ main = do
   putStrLn ""
   putStrLn "--- PART 1: QUANTUM LOGIC WIRE PHASE SUPERPOSITION ---"
   let wireBit = Zero
-  if prop_hadamardPhaseSuperposition wireBit
+  if Wiki.QuantumCircuitObs.prop_hadamardPhaseSuperposition wireBit
      then putStrLn "   -> PASS: Hadamard Phase Superposition & Surface Code topology verified."
      else putStrLn "   -> FAIL: Quantum Circuit check failed."
 
@@ -189,9 +190,17 @@ main = do
      else putStrLn "   -> FAIL: Staged MaxelN / VexelN Quantum Gates check failed."
 
   putStrLn ""
+  putStrLn "--- PART 17: 2LTT STAGED CIRCUIT COMPILER & DIHEDRON REDUCTION ---"
+  let okDihedronCircuit = Stage0.Quantum.Circuit.auditDihedronPauliGateBridge &&
+                          Stage0.Quantum.Circuit.auditStagedCircuitReductionProof
+  if okDihedronCircuit
+     then putStrLn "   -> PASS: 2LTT Staged Circuit Compiler & Dihedron Gate Symbolic Cancellation Verified!"
+     else putStrLn "   -> FAIL: 2LTT Staged Circuit Compiler / Dihedron check failed."
+
+  putStrLn ""
   putStrLn "=========================================================================="
-  if okStateStream && okClifford && okMaxelGates && okBellStaged && okVexelBridge && okMultiQubit
-     then putStrLn "   ALL 16 QUANTUM LAWS, ERROR FILTERS, STREAMS, STAGED MaxelN & MACRO PROOFS PASSED WITH 100% TOTALITY!"
+  if okStateStream && okClifford && okMaxelGates && okBellStaged && okVexelBridge && okMultiQubit && okDihedronCircuit
+     then putStrLn "   ALL 17 QUANTUM LAWS, ERROR FILTERS, STREAMS, STAGED MaxelN & MACRO PROOFS PASSED WITH 100% TOTALITY!"
      else putStrLn "   ❌ QUANTUM COMPUTING WIKI VERIFICATION FAILED"
   putStrLn "=========================================================================="
 
