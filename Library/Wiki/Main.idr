@@ -213,9 +213,10 @@ main = do
   let okKroneckerSynthesis = Stage0.Quantum.Circuit.auditKroneckerIdentity2x2 &&
                              Stage0.Quantum.Circuit.auditPauliXXInvolution &&
                              Stage0.Quantum.Circuit.auditPauliZZInvolution &&
-                             Stage0.Quantum.Circuit.auditPauliXIInvolution
+                             Stage0.Quantum.Circuit.auditPauliXIInvolution &&
+                             Stage0.Quantum.Circuit.auditTypedKroneckerEquivalence
   if okKroneckerSynthesis
-     then putStrLn "   -> PASS: Sparse Kronecker Identity & Multi-Qubit (X⊗X, Z⊗Z, X⊗I) Involutions Verified!"
+     then putStrLn "   -> PASS: Sparse Kronecker Identity, Typed Operator Equivalence & Multi-Qubit (X⊗X, Z⊗Z, X⊗I) Involutions Verified!"
      else putStrLn "   -> FAIL: Sparse Kronecker Multi-Qubit Synthesis check failed."
 
   putStrLn ""
