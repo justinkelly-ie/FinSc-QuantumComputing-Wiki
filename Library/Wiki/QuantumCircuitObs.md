@@ -57,5 +57,12 @@ prop_vexelMaxelBridge =
   in (totalVexelMass vM == intToBoxInt 1) &&
      (lookupPixel (MkPixel 0 1) mM == intToBoxInt 1) &&
      (lookupPixel (MkPixel 1 0) mM == intToBoxInt 1)
+
+||| Property 5: 2LTT Staged 3-Qubit Toffoli & Fredkin Multi-Qubit Gates
+export
+prop_stagedMultiQubitGates : Bool
+prop_stagedMultiQubitGates =
+  auditToffoliGateInvolution && auditFredkinGateInvolution
 ```
+
 

@@ -183,13 +183,14 @@ main = do
   let okMaxelGates = prop_stagedMaxelGateInvolution
   let okBellStaged = prop_stagedBellCircuitEntanglement
   let okVexelBridge = prop_vexelMaxelBridge
-  if okMaxelGates && okBellStaged && okVexelBridge
-     then putStrLn "   -> PASS: 2LTT Staged MaxelN Gates, VexelN Bell Circuit & Multiset Bridges Verified!"
+  let okMultiQubit = prop_stagedMultiQubitGates
+  if okMaxelGates && okBellStaged && okVexelBridge && okMultiQubit
+     then putStrLn "   -> PASS: 2LTT Staged MaxelN Gates, VexelN Bell Circuit, Toffoli/Fredkin & Bridges Verified!"
      else putStrLn "   -> FAIL: Staged MaxelN / VexelN Quantum Gates check failed."
 
   putStrLn ""
   putStrLn "=========================================================================="
-  if okStateStream && okClifford && okMaxelGates && okBellStaged && okVexelBridge
+  if okStateStream && okClifford && okMaxelGates && okBellStaged && okVexelBridge && okMultiQubit
      then putStrLn "   ALL 16 QUANTUM LAWS, ERROR FILTERS, STREAMS, STAGED MaxelN & MACRO PROOFS PASSED WITH 100% TOTALITY!"
      else putStrLn "   ❌ QUANTUM COMPUTING WIKI VERIFICATION FAILED"
   putStrLn "=========================================================================="
