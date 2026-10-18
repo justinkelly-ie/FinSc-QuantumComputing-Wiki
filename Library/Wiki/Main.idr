@@ -198,9 +198,20 @@ main = do
      else putStrLn "   -> FAIL: 2LTT Staged Circuit Compiler / Dihedron check failed."
 
   putStrLn ""
+  putStrLn "--- PART 18: SPARSE BoxSquareMaxel MULTI-QUBIT GATES & INVOLUTIONS ---"
+  let okSparseQuantum = Stage0.Quantum.Circuit.auditCNOTSparseInvolution &&
+                        Stage0.Quantum.Circuit.auditSWAPSparseInvolution &&
+                        Stage0.Quantum.Circuit.auditToffoliSparseInvolution &&
+                        Stage0.Quantum.Circuit.auditFredkinSparseInvolution &&
+                        Stage0.Quantum.Circuit.auditCNOTSparseStateContraction
+  if okSparseQuantum
+     then putStrLn "   -> PASS: Sparse BoxSquareMaxel CNOT, SWAP, Toffoli, Fredkin & State Contraction Verified!"
+     else putStrLn "   -> FAIL: Sparse BoxSquareMaxel Quantum Gates check failed."
+
+  putStrLn ""
   putStrLn "=========================================================================="
-  if okStateStream && okClifford && okMaxelGates && okBellStaged && okVexelBridge && okMultiQubit && okDihedronCircuit
-     then putStrLn "   ALL 17 QUANTUM LAWS, ERROR FILTERS, STREAMS, STAGED MaxelN & MACRO PROOFS PASSED WITH 100% TOTALITY!"
+  if okStateStream && okClifford && okMaxelGates && okBellStaged && okVexelBridge && okMultiQubit && okDihedronCircuit && okSparseQuantum
+     then putStrLn "   ALL 18 QUANTUM LAWS, ERROR FILTERS, STREAMS, SPARSE BoxSquareMaxel & MACRO PROOFS PASSED WITH 100% TOTALITY!"
      else putStrLn "   ❌ QUANTUM COMPUTING WIKI VERIFICATION FAILED"
   putStrLn "=========================================================================="
 
