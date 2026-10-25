@@ -15,7 +15,9 @@ import Stage1.Dihedron
 import Stage0.BoxInt
 import Stage1.UnixelFraction
 import Stage0.Quantum.Circuit
-import Stage1.VexelMaxel
+import Stage1.Carrier.Vexel
+import Stage1.Carrier.Maxel
+import Stage1.Basis.Coordinate
 import QuickCheck
 
 %default total

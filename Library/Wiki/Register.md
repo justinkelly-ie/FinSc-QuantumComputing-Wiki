@@ -13,7 +13,7 @@ module Wiki.Register
 import Wiki.Qubit
 import Stage1.Dihedron
 import Stage0.BoxInt
-import Stage1.VexelMaxel
+import Stage1.Basis.Coordinate
 import Stage1.UnixelFraction
 import Data.Vect
 import QuickCheck
