@@ -13,7 +13,7 @@ A single Qubit is represented exact and discrete using:
 | :--- | :--- | :--- |
 | **Basis $|0\rangle$ Amplitude $\alpha$** | Basis Component $|0\rangle$ | `MkUnixel 0` Coefficient |
 | **Basis $|1\rangle$ Amplitude $\beta$** | Basis Component $|1\rangle$ | `MkUnixel 1` Coefficient |
-| **Qubit State Vector $|\psi\rangle$** | 2D Complex State Vector | `MkVexel [(MkUnixel 0, alpha), (MkUnixel 1, beta)]` |
+| **Qubit State Vector $|\psi\rangle$** | 2D Complex State Vector | `singletonCell (MkUnixel 0) alpha <+> singletonCell (MkUnixel 1) beta` |
 | **Pauli-X Gate** | Quantum NOT / Bit Flip | Basis Swap (`gateX : Qubit -> Qubit`) |
 
 ---

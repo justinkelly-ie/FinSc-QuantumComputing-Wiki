@@ -15,8 +15,6 @@ import Stage1.Dihedron
 import Stage0.BoxInt
 import Stage1.UnixelFraction
 import Stage0.Quantum.Circuit
-import Stage1.Carrier.Vexel
-import Stage1.Carrier.Maxel
 import Stage1.Basis.Coordinate
 import QuickCheck
 
@@ -56,9 +54,9 @@ prop_vexelMaxelBridge =
       vM = vexelNToVexel0 v2
       m2 = pauliXMaxel
       mM = maxelNToMaxel0 m2
-  in (totalVexelMass vM == intToBoxInt 1) &&
-     (lookupPixel (MkPixel 0 1) mM == intToBoxInt 1) &&
-     (lookupPixel (MkPixel 1 0) mM == intToBoxInt 1)
+  in (totalCellMultisetWeight vM == intToBoxInt 1) &&
+     (lookupCellMultiset (MkPixel 0 1) mM == intToBoxInt 1) &&
+     (lookupCellMultiset (MkPixel 1 0) mM == intToBoxInt 1)
 
 ||| Property 5: 2LTT Staged 3-Qubit Toffoli & Fredkin Multi-Qubit Gates
 export
